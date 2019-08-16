@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+
+  rails:
+    build:
+      context: .
+      dockerfile:  ${PWD}/rails/Dockerfile
+      args:
+        - project_dir=./data/${PROJECT_DIR}
+    ports:
+      - "3000:3000"
+    volumes:
+      - ${PWD}/data/${PROJECT_DIR}:/usr/src/app
+    stdin_open: true
+    tty: true
+    env_file:
+      - ${PWD}/rails/rails.env
+
+networks:
+  default:
+    external:
+      name: postgres-network
