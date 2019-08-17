@@ -16,8 +16,14 @@ services:
     tty: true
     env_file:
       - ${PWD}/rails/rails.env
+    networks:
+      - default
+      - postgres
 
 networks:
   default:
+    external:
+      name: nginx-network
+  postgres:
     external:
       name: postgres-network
