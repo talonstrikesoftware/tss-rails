@@ -34,7 +34,7 @@ EXPOSE 3000
 # Clear out any hanging pids
 #ENTRYPOINT ["./docker-entrypoint.sh"]
 # Start server (Exec form)
-#CMD ["rails", "s", "-b", "0.0.0.0"]
+CMD ["rails", "s", "-b", "0.0.0.0"]
 
 # Launch a shell
-ENTRYPOINT ["/bin/bash"]
+#ENTRYPOINT ["/bin/bash"]
